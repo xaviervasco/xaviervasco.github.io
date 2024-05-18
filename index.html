@@ -109,8 +109,11 @@
         <li>Xavier Vasco</li>
         <li><a href="#" id="education-link">Education</a></li>
         <li><a href="#" id="contact-link">Contact</a></li><br>
-        <li><em>Work & Projects</em></li>
+        <li><em>Work & Projects</em></li><br>
         <li>Boat House</li>
+        <li>Bothy</li>
+        <li>Library</li>
+        <li>Porch</li>
     </ul>
 </div>
 <div class="gallery">
@@ -123,7 +126,7 @@
 <div class="education-popup" id="education-popup">
     <div class="education-content">
         <br>
-        <strong>Education</strong><br>
+        <em>Education</em><br>
         <p><b>Master of Urban and Cultural Heritage</b> (2024 - in progress)</p>
         <p>Melbourne School of Design, The University of Melbourne (Australia)</p><br>
 
@@ -134,6 +137,11 @@
         <p><b>Bachelor of Fine Art</b> (2017-2020)</p>
         <p>Victorian College of the Arts, The University of Melbourne (Australia)</p>
         <p class="indented"><strong><em>studied in part at</em></strong> Berkeley, University of California (United States of America)</p><br>
+        <br>
+        <br>
+        <em>Awards and Recognitions</em><br>
+        <p> Global Scholars Award, 2023</p>
+        <p> Global Scholars Award, 2019</p>
     </div>
 </div>
 
@@ -141,14 +149,15 @@
 <div class="contact-popup" id="contact-popup">
     <div class="contact-content">
         <br>
-        <p><em>For all matters, you can address me at</em> email@xaviervasco.com</p><br>
+        <p><em>For all matters, you can address me at</em> <a href="mailto:email@xaviervasco.com">here</a></p><br>
     </div>
 </div>
 
 <script>
-// JavaScript for gallery functionality
-const galleryImage = document.getElementById('galleryImage');
-let currentImageIndex = 0;
+  // JavaScript for gallery functionality
+        const galleryImage = document.getElementById('galleryImage');
+        let currentImageIndex = 0;
+        let popupOpen = false;
 
 // Example array of image sources
 const imageSources = [
@@ -156,10 +165,12 @@ const imageSources = [
     'https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716016029/Close_library_v2j3a1.png'
 ];
 
-function showNextImage() {
-    currentImageIndex = (currentImageIndex + 1) % imageSources.length;
-    galleryImage.src = imageSources[currentImageIndex];
-}
+        function showNextImage() {
+            if (!popupOpen) {
+                currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+                galleryImage.src = imageSources[currentImageIndex];
+            }
+        }
 
 // Initially show the first image
 showNextImage();
@@ -180,12 +191,16 @@ const contactPopup = document.getElementById('contact-popup');
 
 function showPopup(popup) {
     popup.style.display = 'flex';
+    popupOpen = true;  // Set flag to true when a popup is shown
     setTimeout(() => popup.classList.add('show'), 10); // Slight delay to allow for transition
 }
 
 function hidePopup(popup) {
     popup.classList.remove('show');
-    setTimeout(() => popup.style.display = 'none', 500); // Match the transition duration
+    setTimeout(() => {
+        popup.style.display = 'none';
+        popupOpen = false;  // Set flag to false when a popup is hidden
+    }, 500); // Match the transition duration
 }
 
 educationLink.addEventListener('click', function(event) {
