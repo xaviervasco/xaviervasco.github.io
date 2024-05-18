@@ -22,6 +22,7 @@
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
+    flex-shrink: 0; /* Ensure the sidebar doesn't shrink */
 }
 
 .sidebar ul {
@@ -29,12 +30,19 @@
     padding: 0;
 }
 
-.sidebar ul li {
+.sidebar ul li a{
     margin: 10px 0;
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the same color as the parent */
+    font-family: inherit; /* Inherit font family from the parent */
+    font-size: inherit; /* Inherit font size from the parent */
+    line-height: inherit; /* Inherit line height from the parent */
+    display: block; /* Make the link block-level to respect padding/margin */
 }
 
 .gallery {
-    flex-grow: 1;    display: flex;
+    flex-grow: 1;    
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -64,12 +72,20 @@
     left: 318px;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #ffffff;
     display: none;
     justify-content: left;
     align-items: left;
     z-index: 999;
     object-fit: cover;
+ opacity: 0; /* Start with opacity 0 */
+    transition: opacity 0.5s ease-in-out; /* Add transition */
+}
+
+.education-popup.show,
+.contact-popup.show {
+    display: flex;
+    opacity: 1; /* Set opacity to 1 when showing */
 }
 
 .education-content,
@@ -92,8 +108,8 @@
     <ul>
         <li>Xavier Vasco</li>
         <li><a href="#" id="education-link">Education</a></li>
-        <li><a href="#" id="contact-link">Contact</a></li>
-        <li>Work & Projects</li>
+        <li><a href="#" id="contact-link">Contact</a></li><br>
+        <li><em>Work & Projects</em></li>
         <li>Boat House</li>
     </ul>
 </div>
@@ -136,9 +152,8 @@ let currentImageIndex = 0;
 
 // Example array of image sources
 const imageSources = [
-    'https://via.placeholder.com/800x600',
-    'https://via.placeholder.com/1200x800',
-    'https://via.placeholder.com/600x400'
+    'https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716015860/Mastershot_aux4j6.png',
+    'https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716016029/Close_library_v2j3a1.png'
 ];
 
 function showNextImage() {
@@ -163,34 +178,44 @@ const educationPopup = document.getElementById('education-popup');
 const contactLink = document.getElementById('contact-link');
 const contactPopup = document.getElementById('contact-popup');
 
+function showPopup(popup) {
+    popup.style.display = 'flex';
+    setTimeout(() => popup.classList.add('show'), 10); // Slight delay to allow for transition
+}
+
+function hidePopup(popup) {
+    popup.classList.remove('show');
+    setTimeout(() => popup.style.display = 'none', 500); // Match the transition duration
+}
+
 educationLink.addEventListener('click', function(event) {
     event.preventDefault();
-    educationPopup.style.display = 'flex';
+    showPopup(educationPopup);
 });
 
 educationPopup.addEventListener('click', function(event) {
     if (event.target === this) {
-        modalClose(educationPopup);
+        hidePopup(educationPopup);
     }
 });
 
 contactLink.addEventListener('click', function(event) {
     event.preventDefault();
-    contactPopup.style.display = 'flex';
+    showPopup(contactPopup);
 });
 
 contactPopup.addEventListener('click', function(event) {
     if (event.target === this) {
-        modalClose(contactPopup);
+        hidePopup(contactPopup);
     }
 });
 
 document.body.addEventListener('click', function(event) {
     if (!event.target.closest('.education-content') && event.target !== educationLink) {
-        modalClose(educationPopup);
+        hidePopup(educationPopup);
     }
     if (!event.target.closest('.contact-content') && event.target !== contactLink) {
-        modalClose(contactPopup);
+        hidePopup(contactPopup);
     }
 });
 </script>
