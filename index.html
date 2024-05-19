@@ -4,116 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xavier Vasco</title>
-    <style>
-   body {
-    display: flex;
-    margin: 0;
-    font-family: Baskerville, serif;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    font-size: 14px;
-    line-height: 1.2;
-}
-
-.sidebar {
-    width: 318px;
-    background-color: #ffffff;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    flex-shrink: 0; /* Ensure the sidebar doesn't shrink */
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li a{
-    margin: 10px 0;
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the same color as the parent */
-    font-family: inherit; /* Inherit font family from the parent */
-    font-size: inherit; /* Inherit font size from the parent */
-    line-height: inherit; /* Inherit line height from the parent */
-    display: block; /* Make the link block-level to respect padding/margin */
-}
-
-.gallery {
-    flex-grow: 1;    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    padding: 0; /* Ensure there's no padding */
-    box-sizing: border-box;
-}
-
-.gallery-item {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* This ensures the image covers the entire container */
-}
-
-.education-popup,
-.contact-popup {
-    position: fixed;
-    top: 0;
-    left: 318px;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    display: none;
-    justify-content: left;
-    align-items: left;
-    z-index: 999;
-    object-fit: cover;
- opacity: 0; /* Start with opacity 0 */
-    transition: opacity 0.5s ease-in-out; /* Add transition */
-}
-
-.education-popup.show,
-.contact-popup.show {
-    display: flex;
-    opacity: 1; /* Set opacity to 1 when showing */
-}
-
-.education-content,
-.contact-content {
-    background-color: 0;
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 14px;
-    line-height: 1.2;
-}
-
-.indented {
-    text-indent: 43px;
-}
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="sidebar" id="sidebar">
     <ul>
-        <li>Xavier Vasco</li>
+        <li><a href="index.html">Xavier Vasco</a></li>
         <li><a href="#" id="education-link">Education & Awards</a></li>
-        <li><a href="#" id="contact-link">Contact</a></li><br>
+        <li><a href="#" id="contact-link">Contact</a></li><br><br>
         <li><em>Work & Projects</em></li><br>
-        <li>Boat House</li>
-        <li>Bothy</li>
-        <li>Library</li>
-        <li>Porch</li>
+        <li><a href="bothy.html">Boat House</a></li>
+        <li><a href="bothy.html">Bothy</a></li>
+        <li><a href="bothy.html">Library</a></li>
+        <li><a href="bothy.html">Porch</a></li>
     </ul>
 </div>
 <div class="gallery">
@@ -149,91 +52,11 @@
 <div class="contact-popup" id="contact-popup">
     <div class="contact-content">
         <br>
-        <p><em>For all matters, you can address me</em> <a href="mailto:screens_canter0u@icloud.comm">here</a></p><br>
+        <p><em>For all matters, you can address me</em> <a href="mailto:screens_canter0u@icloud.com">here</a></p><br>
     </div>
 </div>
 
-<script>
-  // JavaScript for gallery functionality
-        const galleryImage = document.getElementById('galleryImage');
-        let currentImageIndex = 0;
-        let popupOpen = false;
-
-// Example array of image sources
-const imageSources = [
-    'https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716015860/Mastershot_aux4j6.png',
-    'https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716016029/Close_library_v2j3a1.png'
-];
-
-        function showNextImage() {
-            if (!popupOpen) {
-                currentImageIndex = (currentImageIndex + 1) % imageSources.length;
-                galleryImage.src = imageSources[currentImageIndex];
-            }
-        }
-
-// Initially show the first image
-showNextImage();
-
-// Change image every 5 seconds
-setInterval(showNextImage, 5000);
-
-// Modal close function
-function modalClose(popup) {
-    popup.style.display = 'none';
-}
-
-// Education Link Functionality
-const educationLink = document.getElementById('education-link');
-const educationPopup = document.getElementById('education-popup');
-const contactLink = document.getElementById('contact-link');
-const contactPopup = document.getElementById('contact-popup');
-
-function showPopup(popup) {
-    popup.style.display = 'flex';
-    popupOpen = true;  // Set flag to true when a popup is shown
-    setTimeout(() => popup.classList.add('show'), 10); // Slight delay to allow for transition
-}
-
-function hidePopup(popup) {
-    popup.classList.remove('show');
-    setTimeout(() => {
-        popup.style.display = 'none';
-        popupOpen = false;  // Set flag to false when a popup is hidden
-    }, 500); // Match the transition duration
-}
-
-educationLink.addEventListener('click', function(event) {
-    event.preventDefault();
-    showPopup(educationPopup);
-});
-
-educationPopup.addEventListener('click', function(event) {
-    if (event.target === this) {
-        hidePopup(educationPopup);
-    }
-});
-
-contactLink.addEventListener('click', function(event) {
-    event.preventDefault();
-    showPopup(contactPopup);
-});
-
-contactPopup.addEventListener('click', function(event) {
-    if (event.target === this) {
-        hidePopup(contactPopup);
-    }
-});
-
-document.body.addEventListener('click', function(event) {
-    if (!event.target.closest('.education-content') && event.target !== educationLink) {
-        hidePopup(educationPopup);
-    }
-    if (!event.target.closest('.contact-content') && event.target !== contactLink) {
-        hidePopup(contactPopup);
-    }
-});
-</script>
+ <script src="script.js" defer></script> <!-- Link to your JS file -->
 
 </body>
 </html>
