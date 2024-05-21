@@ -98,6 +98,11 @@
     min-width: 200px; /* Ensure a minimum width for each column */
 }
 
+.column img {
+    max-width: 100%; /* Ensures the image doesn't exceed its container */
+    height: auto; /* Allows the image to adapt its height proportionally */
+}
+
 .indented {
     margin-left: 20px; /* Add margin-left for indentation */
 }
