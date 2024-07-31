@@ -63,7 +63,7 @@
     position: fixed;
     top: 0;
     left: 318px;
-    max-width: 90%;
+    width: calc(100% - 318px);
     height: 100%;
     background-color: #ffffff;
     display: none;
@@ -96,6 +96,7 @@
 .column {
     flex: 1;
     min-width: 200px; /* Ensure a minimum width for each column */
+    max-width: 300px;
 }
 
 .column img {
