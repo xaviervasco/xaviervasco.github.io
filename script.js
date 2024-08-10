@@ -84,3 +84,31 @@ document.body.addEventListener('click', function(event) {
         hidePopup(contactPopup);
     }
 });
+
+// Pull Tab and Sidebar functionality
+const pullTab = document.getElementById('pullTab');
+const sidebar = document.getElementById('sidebar');
+
+function toggleSidebar() {
+    if (sidebar.classList.contains('show')) {
+        sidebar.classList.remove('show');
+    } else {
+        sidebar.classList.add('show');
+    }
+}
+
+// Only add event listener if the screen width is less than 600px
+function checkScreenWidth() {
+    if (window.innerWidth <= 600) {
+        pullTab.addEventListener('click', toggleSidebar);
+    } else {
+        pullTab.removeEventListener('click', toggleSidebar);
+        sidebar.classList.remove('show'); // Ensure sidebar is hidden
+    }
+}
+
+// Initial check
+checkScreenWidth();
+
+// Re-check when the window is resized
+window.addEventListener('resize', checkScreenWidth);
