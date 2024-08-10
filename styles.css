@@ -75,6 +75,15 @@ body {
     transition: opacity 0.5s ease-in-out; /* Add transition */
 }
 
+/* Adjust popup position for smaller screens */
+@media screen and (max-width: 600px) {
+    .education-popup,
+    .contact-popup {
+        left: 318; /* Align the popup with the pull-tab */
+        width: 100%; /* Make it full width for small screens */
+    }
+}
+
 .education-popup.show,
 .contact-popup.show {
     display: flex;
@@ -108,57 +117,38 @@ body {
     margin-left: 20px; /* Add margin-left for indentation */
 }
 
-/* Styles for screens smaller than 600px */
 /* Default state - Hide the pull tab and sidebar on larger screens */
 .pull-tab {
     display: none;
-}
-
-/* Hide the sidebar initially */
-.sidebar {
     position: fixed;
-    top: 0; /* Keep it at the top by default, hidden off-screen by JavaScript */
-    left: 0;
-    width: 318px;
-    background-color: #ffffff;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+    cursor: pointer;
     z-index: 1000;
 }
 
-/* Adjust styles for screens smaller than 600px */
-@media (max-width: 600px) {
+/* Add media query for small screens */
+@media screen and (max-width: 600px) {
+    .sidebar {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 318px;
+        height: 100%;
+        background-color: #ffffff;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 1s ease-in-out;
+    }
+
+    .sidebar.open {
+        display: block; /* Add this line to ensure the sidebar becomes visible */
+        transform: translateX(0);
+    }
+
     .pull-tab {
         display: block;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #333;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 0 0 10px 10px;
-        cursor: pointer;
-        z-index: 1001;
-    }
-
-    /* Initially hide the sidebar off-screen */
-    .sidebar {
-        top: -100%; /* Hidden off-screen */
-        left: 0;
-        width: 100%;
-        transition: top 0.3s ease-in-out;
-    }
-
-    /* Sidebar visible */
-    .sidebar.show {
-        top: 0; /* Slide down to reveal */
-    }
-
-    /* Adjust the gallery to avoid overlap */
-    .gallery {
-        margin-top: 50px; /* Adjust to leave space for the pull tab */
-        height: calc(100vh - 50px); /* Adjusted height to account for the pull tab */
     }
 }

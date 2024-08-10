@@ -9,9 +9,8 @@ const imageSources = [
     'https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716016029/Close_library_v2j3a1.png'
 ];
 
-// Function to check if the current page is the home page
 function isHomePage() {
-    return document.title === 'Xavier Vasco'; // Adjust the title to match your home page title
+    return document.title === 'Xavier Vasco';
 }
 
 if (isHomePage()) {
@@ -22,19 +21,14 @@ if (isHomePage()) {
         }
     }
 
-    // Initially show the first image
     showNextImage();
-
-    // Change image every 5 seconds
     setInterval(showNextImage, 5000);
 }
 
-// Modal close function
 function modalClose(popup) {
     popup.style.display = 'none';
 }
 
-// Education Link Functionality
 const educationLink = document.getElementById('education-link');
 const educationPopup = document.getElementById('education-popup');
 const contactLink = document.getElementById('contact-link');
@@ -42,16 +36,16 @@ const contactPopup = document.getElementById('contact-popup');
 
 function showPopup(popup) {
     popup.style.display = 'flex';
-    popupOpen = true; // Set flag to true when a popup is shown
-    setTimeout(() => popup.classList.add('show'), 10); // Slight delay to allow for transition
+    popupOpen = true;
+    setTimeout(() => popup.classList.add('show'), 10);
 }
 
 function hidePopup(popup) {
     popup.classList.remove('show');
     setTimeout(() => {
         popup.style.display = 'none';
-        popupOpen = false; // Set flag to false when a popup is hidden
-    }, 500); // Match the transition duration
+        popupOpen = false;
+    }, 500);
 }
 
 educationLink.addEventListener('click', function(event) {
@@ -85,30 +79,12 @@ document.body.addEventListener('click', function(event) {
     }
 });
 
-// Pull Tab and Sidebar functionality
-const pullTab = document.getElementById('pullTab');
+// Hamburger menu toggle functionality
+const pullTab = document.getElementById('pull-tab');
 const sidebar = document.getElementById('sidebar');
 
-function toggleSidebar() {
-    if (sidebar.classList.contains('show')) {
-        sidebar.classList.remove('show');
-    } else {
-        sidebar.classList.add('show');
-    }
-}
-
-// Only add event listener if the screen width is less than 600px
-function checkScreenWidth() {
-    if (window.innerWidth <= 600) {
-        pullTab.addEventListener('click', toggleSidebar);
-    } else {
-        pullTab.removeEventListener('click', toggleSidebar);
-        sidebar.classList.remove('show'); // Ensure sidebar is hidden
-    }
-}
-
-// Initial check
-checkScreenWidth();
-
-// Re-check when the window is resized
-window.addEventListener('resize', checkScreenWidth);
+pullTab.addEventListener('click', function() {
+    console.log("Hamburger menu clicked!"); // Debugging line
+    sidebar.classList.toggle('open');
+    console.log("Sidebar classes: ", sidebar.classList); // Debugging line to check class toggling
+});
