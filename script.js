@@ -21,5 +21,5 @@ function showNextImage() {
     images[currentImageIndex].classList.add('active');
 }
 
-setInterval(showNextImage, 2000); // Change image every 2 seconds
+setInterval(showNextImage, 4000); // Change image every 2 seconds
 
