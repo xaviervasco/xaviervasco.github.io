@@ -11,6 +11,7 @@ body {
     background-color: #ffffff;
     color: #333;
     padding: 10px; /* Add padding around the entire body */
+
 }
 
 /* Header */
@@ -204,6 +205,16 @@ margin-right: auto;
     .column p {
         font-size: 0.9rem; /* Adjust the paragraph font size */
          line-height: 1.2; /* Adjust the line-height for paragraphs */
+         margin-bottom: 12px; /* Add space after each paragraph */
+  }
+
+    .column p2 {
+        font-size: 0.9rem; /* Adjust the paragraph font size */
+         line-height: 1.2; /* Adjust the line-height for paragraphs */
+         color: #85858c;
+         margin-bottom: 100px; /* Add space after each paragraph */
+
+
     }
 }
 
@@ -215,7 +226,7 @@ margin-right: auto;
     }
 
 .page-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #fffff;
     text-align: center;
     margin-top: 0px;
@@ -243,5 +254,14 @@ margin-right: auto;
     .column p {
         font-size: 0.9rem; /* Adjust the paragraph font size */
          line-height: 1.2; /* Adjust the line-height for paragraphs */
+         margin-bottom: 12px; /* Add space after each paragraph */
+
+}
+
+    .column p2 {
+        font-size: 0.9rem; /* Adjust the paragraph font size */
+         line-height: 1.2; /* Adjust the line-height for paragraphs */
+         color: #85858c;
+         margin-bottom: 100px; /* Add space after each paragraph */
     }
 }
