@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Mobile-Friendly Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header>
+        <div class="page-title">
+          Xavier Vasco
+        </div>
+        <div class="burger-menu" id="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <div id="menu-overlay" class="hidden">
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+                <!-- Add more pages as needed -->
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <section class="gallery">
+            <div class="gallery-frame">
+                <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716015860/Mastershot_aux4j6.png" alt="Image 1" class="gallery-image active">
+                <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716016029/Close_library_v2j3a1.png" alt="Image 2" class="gallery-image">
+                <!-- Add more images as needed -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<script>window.scrollTo(0, 0); setTimeout(function() { window.scrollTo(0, 0); },200)</script>
