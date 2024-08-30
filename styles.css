@@ -1,105 +1,182 @@
-body {
-    display: flex;
+/* Basic Reset */
+* {
     margin: 0;
-    font-family: Baskerville, serif;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    font-size: 14px;
-    line-height: 1.2;
-}
-
-.sidebar {
-    width: 318px;
-    background-color: #ffffff;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    flex-shrink: 0; /* Ensure the sidebar doesn't shrink */
-}
-
-.sidebar ul {
-    list-style-type: none;
     padding: 0;
-}
-
-.sidebar ul li a {
-    margin: 10px 0;
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the same color as the parent */
-    font-family: inherit; /* Inherit font family from the parent */
-    font-size: inherit; /* Inherit font size from the parent */
-    line-height: inherit; /* Inherit line height from the parent */
-    display: block; /* Make the link block-level to respect padding/margin */
-}
-
-.gallery {
-    flex-grow: 1;    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    padding: 0; /* Ensure there's no padding */
     box-sizing: border-box;
 }
 
-.gallery-item {
-    width: 100%;
-    height: 100%;
+/* Body and Layout */
+body {
+    font-family: helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    padding: 10px; /* Add padding around the entire body */
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+
+}
+
+.page-title {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Burger Menu */
+.burger-menu {
+    cursor: pointer;
+    width: 40px; /* Set the width of the circle */
+    height: 40px; /* Set the height of the circle */
+    background-color: #000; /* Set the background color of the circle */
+    border-radius: 50%; /* Make the element a circle */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.gallery-item img {
+.burger-menu span {
+    background-color: #000000;
+    height: 3px;
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* This ensures the image covers the entire container */
+    display: block;
 }
 
-.education-popup,
-.contact-popup {
+/* Navigation Menu Overlay */
+#menu-overlay {
     position: fixed;
     top: 0;
-    left: 318px;
-    width: calc(100% - 318px);
+    left: 0;
+    width: 100%;
     height: 100%;
-    background-color: #ffffff;
-    display: none;
-    justify-content: left;
-    align-items: left;
-    z-index: 999;
-    object-fit: cover;
-    opacity: 0; /* Start with opacity 0 */
-    transition: opacity 0.5s ease-in-out; /* Add transition */
-}
-
-/* Adjust popup position for smaller screens */
-@media screen and (max-width: 600px) {
-    .education-popup,
-    .contact-popup {
-        left: 318; /* Align the popup with the pull-tab */
-        width: 100%; /* Make it full width for small screens */
-    }
-}
-
-.education-popup.show,
-.contact-popup.show {
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
-    opacity: 1; /* Set opacity to 1 when showing */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.education-content,
-.contact-content {
+#menu-overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    margin: 20px 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+/* Gallery */
+.gallery {
     display: flex;
-    flex-direction: row;
-    gap: 20px; /* Space between columns */
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 14px;
-    line-height: 1.2;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    margin-top: 60px; /* Adjust this to match the height of your header */
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.gallery-frame {
+    position: relative;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure the images do not overflow the frame */
+    background-color: #fff; /* Optional: Add a background color for the frame */
+    border: 1px solid #ddd; /* Optional: Add a border to the frame */
+}
+
+.gallery-image {
+    position: absolute; /* Position the images on top of each other */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust positioning to truly center */
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    object-fit: contain; /* Ensures the image is scaled to fit inside the frame while maintaining aspect ratio */
+}
+
+.gallery-image.active {
+    opacity: 1;
+    z-index: 1; /* Ensure the active image is on top */
+}
+
+/* About Page Styles */
+
+/* Two Column Text Section */
+.about-details {
+    column-count: 2;
+    column-gap: min 20px; /* Space between the columns */
+    max-width: 1500px; /* Set a maximum width for the entire section */
+}
+
+.column {
+    break-inside: avoid; /* Ensure that elements don't break awkwardly between columns */
+
+}
+
+.column img {
+    max-width: 100%; /* Ensures the image doesn't exceed its container */
+    height: auto; /* Allows the image to adapt its height proportionally */
+
+}
+
+/* Centered Text Section */
+.about-intro {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.indented {
+    margin-left: 20px; /* Add margin-left for indentation */
+}
+
+/* Justify text in the About section */
+.about-details p {
+    text-align: left;
+}
+
+/* Adjust for screens larger than 600px */
+@media (min-width: 1000px) {
+    .about-details {
+        column-count: 5; /* Five columns on screens larger than 600*/
+margin-left : 20px;
+margin-right: auto;
+}
+
+/* Force new column for specific elements */
+.column p.new-column-start {
+    break-before: column; /* Forces the following content to start in a new column */
 }
 
 .column {
@@ -108,47 +185,54 @@ body {
     max-width: 300px;
 }
 
-.column img {
-    max-width: 100%; /* Ensures the image doesn't exceed its container */
-    height: auto; /* Allows the image to adapt its height proportionally */
-}
 
-.indented {
-    margin-left: 20px; /* Add margin-left for indentation */
-}
-
-/* Default state - Hide the pull tab and sidebar on larger screens */
-.pull-tab {
-    display: none;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    font-size: 30px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-/* Add media query for small screens */
-@media screen and (max-width: 600px) {
-    .sidebar {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 318px;
-        height: 100%;
-        background-color: #ffffff;
-        z-index: 1000;
-        transform: translateX(-100%);
-        transition: transform 1s ease-in-out;
+    .about-intro {
+        margin-bottom: 0; /* Remove bottom margin when part of the columns */
     }
 
-    .sidebar.open {
-        display: block; /* Add this line to ensure the sidebar becomes visible */
-        transform: translateX(0);
+    .column h1 {
+        font-size: 0.9rem; /* Adjust the heading size to fit in the column */
+        font-weight: normal;
+ }
+
+    .column h2 {
+        font-size: 0.9rem; /* Adjust the heading size to fit in the column */
+        font-weight: semi-bold;
+
     }
 
-    .pull-tab {
-        display: block;
+    .column p {
+        font-size: 0.9rem; /* Adjust the paragraph font size */
+         line-height: 1.2; /* Adjust the line-height for paragraphs */
+    }
+}
+
+/* Adjust for screens smaller than 600px */
+@media (max-width: 1000px) {
+    .about-intro {
+        width: 100%; /* Ensure it takes up full width */
+        margin: 0 auto 40px; /* Center it with auto margins and keep bottom margin */
+    }
+
+    .about-details {
+        column-count: 2; /* Single column on smaller screens */
+    }
+
+    .column {
+        width: 100%; /* Make each column full width */
+    }
+
+    .column h1 {
+        font-size: 0.9rem; /* Adjust the heading size to fit in the column */
+        font-weight: normal;
+ }
+
+    .column h2 {
+        font-size: 0.9rem; /* Adjust the heading size to fit in the column */
+        font-weight: semi-bold;
+}
+    .column p {
+        font-size: 0.9rem; /* Adjust the paragraph font size */
+         line-height: 1.2; /* Adjust the line-height for paragraphs */
     }
 }
