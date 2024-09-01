@@ -21,5 +21,14 @@ function showNextImage() {
     images[currentImageIndex].classList.add('active');
 }
 
-setInterval(showNextImage, 4000); // Change image every 2 seconds
+setInterval(showNextImage, 4000); // Change image every 4 seconds
 
+document.querySelectorAll('.project-link').forEach(link => {
+    link.addEventListener('mouseenter', function() {
+        const imageUrl = this.getAttribute('data-image');
+        this.style.setProperty('--image-url', `url(${imageUrl})`);
+    });
+    link.addEventListener('mouseleave', function() {
+        this.style.setProperty('--image-url', '');
+    });
+});

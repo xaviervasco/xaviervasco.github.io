@@ -8,8 +8,10 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="page-title">Xavier Vasco</div>
+   <header>
+        <div class="page-title">
+          Xavier Vasco
+        </div>
         <div class="burger-menu" id="burger-menu">
             <span></span>
             <span></span>
@@ -17,18 +19,22 @@
         </div>
     </header>
 
+
     <!-- Menu Overlay -->
-    <div id="menu-overlay">
-        <nav>
+  <div id="menu-overlay" class="hidden">
+        <nav id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <br>
+                   <br>
                 <li><a href="work.html"><em>Work & Projects</em></a></li>
+
+                <!-- Add more pages as needed -->
             </ul>
         </nav>
     </div>
+
 
     <!-- About Page Content -->
     <main>
@@ -44,16 +50,6 @@
         </section>
     </main>
 
-    <script>
-        document.querySelectorAll('.project-link').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                const imageUrl = this.getAttribute('data-image');
-                this.style.setProperty('--image-url', `url(${imageUrl})`);
-            });
-            link.addEventListener('mouseleave', function() {
-                this.style.setProperty('--image-url', '');
-            });
-        });
-    </script>
+<script src="script.js" defer></script>
 </body>
 </html>
