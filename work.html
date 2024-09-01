@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work & Projects</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="page-title">Xavier Vasco</div>
+        <div class="burger-menu" id="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Menu Overlay -->
+    <div id="menu-overlay">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <br>
+                <li><a href="work.html"><em>Work & Projects</em></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- About Page Content -->
+    <main>
+        <section class="about-details">
+            <div class="column">
+                <h1>Work & Projects</h1><br>
+                <p><a href="boathouse.html" class="project-link" data-image="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716015860/Mastershot_aux4j6.png">Boat House</a></p>
+                  <p><a href="bothy.html" class="project-link" data-image="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1723296224/Bothy_Front_v84a6e.webp">Bothy</a></p>
+                 <p><a href="library.html" class="project-link" data-image="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716016029/Close_library_v2j3a1.png">Library</a></p>
+                  <p><a href="lynchgate.html" class="project-link" data-image="images/lynchgate.jpg">Lynchgate</a></p>
+                  <p><a href="modernhouse.html" class="project-link" data-image="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1725024681/026EC540-95A9-4C26-B99C-BF6864E80A98_j1owit.jpg" alt="Image 4" class="gallery-image">Modern House</a></p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.querySelectorAll('.project-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                const imageUrl = this.getAttribute('data-image');
+                this.style.setProperty('--image-url', `url(${imageUrl})`);
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.setProperty('--image-url', '');
+            });
+        });
+    </script>
+</body>
+</html>

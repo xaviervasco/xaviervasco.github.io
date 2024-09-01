@@ -7,11 +7,10 @@
 
 /* Body and Layout */
 body {
-    font-family: helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     background-color: #ffffff;
     color: #333;
     padding: 10px; /* Add padding around the entire body */
-
 }
 
 /* Header */
@@ -124,6 +123,47 @@ nav ul li a {
     z-index: 1; /* Ensure the active image is on top */
 }
 
+/* Work Page Styles */
+
+.project-link {
+    position: relative;
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 0px;
+    transition: color 0s ease;
+}
+
+.project-link:hover {
+    color: #858585; /* Text color on hover */
+}
+
+/* Retain the existing CSS styles */
+
+.project-link::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    transform: translate(-50%, -50%);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    background-image: var(--image-url); /* Use CSS variable */
+}
+
+.project-link:hover::before {
+    opacity: 1;
+}
+
 /* About Page Styles */
 
 /* Two Column Text Section */
@@ -194,11 +234,12 @@ margin-right: auto;
     .column h1 {
         font-size: 0.9rem; /* Adjust the heading size to fit in the column */
         font-weight: normal;
+        font-style: italic;
  }
 
     .column h2 {
         font-size: 0.9rem; /* Adjust the heading size to fit in the column */
-        font-weight: semi-bold;
+        font-weight: normal;
 
     }
 
@@ -206,13 +247,22 @@ margin-right: auto;
         font-size: 0.9rem; /* Adjust the paragraph font size */
          line-height: 1.2; /* Adjust the line-height for paragraphs */
          margin-bottom: 12px; /* Add space after each paragraph */
+         font-weight: 300;
   }
 
     .column p2 {
         font-size: 0.9rem; /* Adjust the paragraph font size */
          line-height: 1.2; /* Adjust the line-height for paragraphs */
          color: #85858c;
-         margin-bottom: 100px; /* Add space after each paragraph */
+         margin-bottom: 12px; /* Add space after each paragraph */
+
+}
+
+    .column p3 {
+        font-size: 0.9rem; /* Adjust the paragraph font size */
+         line-height: 1.2; /* Adjust the line-height for paragraphs */
+         font-weight: 300;
+         color: #858585;
 
 
     }
@@ -242,26 +292,42 @@ margin-right: auto;
         padding-top: 20px
     }
 
+  /* Force a break to the second column when a certain element or condition is met */
+    .about-details p.break-to-new-column {
+        break-before: column; /* Force the next paragraph to start in a new column */
+
+ }
+
     .column h1 {
-        font-size: 1rem; /* Adjust the heading size to fit in the column */
+        font-size: 1.1rem; /* Adjust the heading size to fit in the column */
         font-weight: normal;
  }
 
     .column h2 {
         font-size: 0.9rem; /* Adjust the heading size to fit in the column */
-        font-weight: semi-bold;
+        font-weight: normal;
 }
     .column p {
         font-size: 0.9rem; /* Adjust the paragraph font size */
          line-height: 1.2; /* Adjust the line-height for paragraphs */
          margin-bottom: 12px; /* Add space after each paragraph */
+        font-weight: 300;
+
 
 }
 
     .column p2 {
         font-size: 0.9rem; /* Adjust the paragraph font size */
          line-height: 1.2; /* Adjust the line-height for paragraphs */
-         color: #85858c;
-         margin-bottom: 100px; /* Add space after each paragraph */
+         color: #858585;
+         margin-bottom: 12px; /* Add space after each paragraph */
+         font-weight: 300;
+}
+
+    .column p3 {
+        font-size: 0.9rem; /* Adjust the paragraph font size */
+         line-height: 1.2; /* Adjust the line-height for paragraphs */
+   font-weight: 300;
+color: #858585;
     }
 }
