@@ -18,9 +18,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     background-color: #ffffff;
     color: #000000;
+
+}
+
+/* Adjust the size of the logo */
+.logo-image {
+    width: 700px; /* Set the desired width */
+    height: auto; /* Let the height adjust automatically to maintain aspect ratio */
+    padding-top: 10px
 
 }
 
@@ -281,6 +289,13 @@ margin-right: auto;
     text-align: center;
     margin-top: 0px;
 
+}
+
+/* Default logo styles */
+.logo-image {
+    width: 200px; 
+    height: auto;
+   
 }
 
     .about-details {
