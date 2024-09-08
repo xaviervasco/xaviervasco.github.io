@@ -28,7 +28,9 @@ header {
 .logo-image {
     width: 700px; /* Set the desired width */
     height: auto; /* Let the height adjust automatically to maintain aspect ratio */
-    padding-top: 10px
+    padding-top: 10px;
+    filter: drop-shadow(8px 4px 4px rgba(0,0,0,0.2));
+padding-bottom: 20px
 
 }
 
