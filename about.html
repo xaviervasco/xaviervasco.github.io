@@ -64,7 +64,7 @@
     }
        
        .about-details {
-    column-count: 2;
+    column-count: 5;
     column-gap: min 20px; /* Space between the columns */
     max-width: 1500px; /* Set a maximum width for the entire section */
 }
@@ -92,8 +92,14 @@
 .about-details p {
     text-align: left;
 }
+       
+       .column subtitle {
+        font-size: 0.8rem; /* Adjust the heading size to fit in the column */
 
-@media (min-width: 500px) {
+}
+
+/* Adjust for screens larger than 1000px */
+@media (min-width: 600px) {
     .about-details {
         column-count: 5; /* Five columns on screens larger than 1000px */
         margin-left: 20px;
@@ -105,19 +111,20 @@
     }
 
     .column h1, .column h2 {
-        font-size: 0.9rem; /* Adjust the heading size to fit in the column */
+        font-size: 0.8rem; /* Adjust the heading size to fit in the column */
         font-weight: normal;
     }
 
     .column p {
-        font-size: 0.9rem; /* Adjust the paragraph font size */
+        font-size: 0.8rem; /* Adjust the paragraph font size */
         line-height: 1.2; /* Adjust the line-height for paragraphs */
         margin-bottom: 12px; /* Add space after each paragraph */
         font-weight: 300;
     }
 }
 
-@media (max-width: 500px) {
+/* Adjust for screens smaller than 1000px */
+@media (max-width: 600px) {
     .about-intro {
         width: 100%; /* Ensure it takes up full width */
         margin: 0 auto 40px; /* Center it with auto margins and keep bottom margin */
@@ -132,12 +139,12 @@
     }
 
     .column h1, .column h2 {
-        font-size: 0.9rem; /* Adjust the heading size to fit in the column */
+        font-size: 0.8rem; /* Adjust the heading size to fit in the column */
         font-weight: normal;
     }
 
     .column p {
-        font-size: 0.9rem; /* Adjust the paragraph font size */
+        font-size: 0.8rem; /* Adjust the paragraph font size */
         line-height: 1.2; /* Adjust the line-height for paragraphs */
         margin-bottom: 12px; /* Add space after each paragraph */
         font-weight: 300;
@@ -164,15 +171,14 @@
             <!-- Centered Text Section -->
             <div class="column">
                 <h1>Biography</h1><br>
-                <p2>Xavier Vasco is an Australian architecture student based in Melbourne. He is pursuing a Master's in Architecture and a Master's in Cultural and Urban Heritage at the University of Melbourne. He has completed parts of his studies at UC Berkley and TU Delft.</p2>
-<br><br>
-<p2>His architectural work primarily focuses on themed architecture, mainly in New Classical and Gothic styles, exploring the relationship between visual expression and its socio-ecological impacts on our environment. His research interests focus on artificiality and nostalgia, exploring the integration of artificial acoustics and animatronics into everyday environments.</p2><br><br>
+                <p>Xavier Vasco is an Australian architecture student based in Melbourne. He is pursuing a Master's in Architecture and a Master's in Cultural and Urban Heritage at the University of Melbourne. He has completed parts of his studies at UC Berkley and TU Delft.</p>
+<p>His architectural work primarily focuses on themed architecture, mainly in New Classical and Gothic styles, exploring the relationship between visual expression and its socio-ecological impacts on our environment. His research interests focus on artificiality and nostalgia, exploring the integration of artificial acoustics and animatronics into everyday environments.</p>
 
-                <p2>Xavier also maintains an art practice, having exhibited in Australia, the United States, and Europe. His works have primarily concerned the production of sculptural objects as artificial facsimiles and theatrical props, utilising technical abilities in carpentry, metalwork, sculpture, computer-aided design, painting, and colouring.</p2>
-<br>
+                <p>Xavier also maintains an art practice, having exhibited in Australia, the United States, and Europe. His works have primarily concerned the production of sculptural objects as artificial facsimiles and theatrical props, utilising technical abilities in carpentry, metalwork, sculpture, computer-aided design, painting, and colouring.</p>
 <br>
 
-<img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716282874/xavier_eknsrl.png" alt="Image Description">
+
+<img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1731323996/xavier_heulds.png" alt="Image Description">
             </div>
            
 
@@ -180,28 +186,26 @@
  <p class="new-column-start">
  <div class="column">
 <h1>Education</h1><br>
-<p3>(2024 - in progress)</p3>                
+<h2>(2024 - in progress)</h2>                
 <h2>Master of Urban and Cultural Heritage</h2>
 <p>Melbourne School of Design, The University of Melbourne (Australia)<br></p><br>
 
-<p3>(2021 - in progress)</p3> 
+<h2>(2021 - in progress)</h2> 
                 <h2>Master of Architecture</h2>
                  <p>Melbourne School of Design, The University of Melbourne (Australia)</p>
                 <p class="indented"><strong style="font-weight: normal;"><em>studied in part at</em></strong> Delft University of Technology (Netherlands)</p><br>
 
-			<p3>(2017-2020)</p3>
+			<h2>(2017-2020)</h2>
                 <h2>Bachelor of Fine Art</h2>
                 <p>Victorian College of the Arts, The University of Melbourne (Australia)</p>
 <p class="indented"><strong style="font-weight: normal;"><em>studied in part at</em></strong> Berkeley, University of California (United States of America)</p>            </div>
-
+<br>
             <div class="column">
  <p class="new-column-start">
 <h1>Awards and Recognition</h1><br>
                 <p>Global Scholars Award, 2023</p>
                 <p>Global Scholars Award, 2019</p>
                <br>
- <br>
- 
 
                 <h1>Memberships and Affiliations</h1><br>
 <p>AusHeritage - <em>Member</em></p>
@@ -215,10 +219,8 @@
                 <p><strong style="font-weight: normal;">Architectural Intern (Current)</strong><br>
                 RBA Architects + Conservation Consultants.</p>
  <br>
-
             </div>
-
-            <div class="column">
+                   <div class="column">
 <h1>Experience</h1><br>
 <p>2024. Received letter of commendation from the Dean of Architecture, Building and Planning; Professor Julie Willis.</p>              
 <p>2024. Selected as Melbourne School of Design Peer Mentor.</p> 
@@ -243,8 +245,8 @@
                 <p>2016. <em>The Unresolved</em> at VCA Student Gallery. Australia.</p>
                 <p>2016. <em>Talk With Simplicity</em> at George Paton Gallery. Australia.</p>
                 <p>2016. <em>Still Resolving</em> at MADA Student Gallery. Australia.</p>
-
             </div>
+
 
         </section>
     </main>

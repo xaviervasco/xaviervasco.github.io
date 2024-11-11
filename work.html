@@ -3,61 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work & Projects</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="styles.css">
-</head>
+   <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            padding: 10px 20px;
+            z-index: 100;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 20px;
+            color: black;
+            font-family: Helvetica, sans-serif;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 12px;
+            font-family: Helvetica, sans-serif;
+            opacity: 1;
+        }
+
+        nav ul li a:hover {
+            text-shadow: 0 0 4px #fff, 0 0 8px #fff;
+        }
+
+        #scroll-container {
+            position: fixed;
+            top: 0;
+            left: 200px;
+            width: 300px;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            scroll-snap-type: y mandatory;
+        }
+
+        /* Top and bottom padding using pseudo-elements */
+        #scroll-container::before,
+        #scroll-container::after {
+            content: "";
+            display: block;
+            height: 50vh; /* Space to center the first and last image */
+            flex-shrink: 0;
+        }
+
+        #scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .image-item {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .image-item img {
+            width: 100%;
+            max-width: 300px;
+            max-height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease; /* Smooth fade effect */
+        }
+
+        /* Position text elements on the right */
+        header, #year-counter {
+            position: fixed;
+            left: 800px;
+            color: black;
+            font-size: 2.5em;
+            text-align: right;
+            z-index: 100;
+            font-size: 25px;
+        }
+
+        header {
+            top: 35%;
+        }
+
+        #year-counter {
+            top: 38%;
+        }
+       
+        @media (max-width: 400px) {
+
+              #scroll-container {
+            position: fixed;
+            top: 0;
+            left: 0px;
+            width: 300px;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            scroll-snap-type: y mandatory;
+        }
+            
+                 .image-item {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+                    
+
+            
+            
+            }
+        }
+       
+    </style>
+
+    </head>
 <body>
-    <!-- Header -->
-  <header>
- <picture>
-  <!-- Source for screens less than 1000px wide -->
-  <source media="(max-width: 1000px)" srcset="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1729134818/Screenshot_2024-10-17_at_2.04.14_pm_wvhkai.png">
+    
+       <nav>
+        <a href="index.html" class="logo">Xavier Vasco</a>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+   <header id="image-name-header">Xavier Vasco</header>
 
-  <!-- Default logo for larger screens -->
-  <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1729134818/Screenshot_2024-10-17_at_2.04.14_pm_wvhkai.png" alt="Xavier Vasco" class="logo-image">
-</picture>
-
-        <div class="page-title">
-           
+    <div id="scroll-container">
+         <div class="image-item" data-year="2024">
+            <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1731318936/gif-2_ikuvxc.gif" alt="Archiology.com.au">
         </div>
-        <div class="burger-menu" id="burger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="image-item" data-year="2024">
+            <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716015860/Mastershot_aux4j6.png" alt="Beach House">
         </div>
-    </header>
-
-
-    <!-- Menu Overlay -->
-  <div id="menu-overlay" class="hidden">
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                   <br>
-                <li><a href="work.html"><em>Work & Projects</em></a></li>
-
-                <!-- Add more pages as needed -->
-            </ul>
-        </nav>
+         <div class="image-item" data-year="2024">
+            <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1723296224/Bothy_Front_v84a6e.webp" alt="Bothy">
+        </div>
+        <div class="image-item" data-year="2021">
+            <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716016029/Close_library_v2j3a1.png" alt="State Library of Victoria">
+        </div>
+        <div class="image-item" data-year="2023">
+            <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1723296224/Bothy_Front_v84a6e.webp" alt="Image 4">
+        </div>
     </div>
 
+    <div id="year-counter">2020</div>
 
-    <!-- About Page Content -->
-    <main>
-        <section class="about-details">
-            <div class="column">
-                <h1>Work & Projects</h1><br>
-                <p><a href="boathouse.html" class="project-link" data-image="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716015860/Mastershot_aux4j6.png">Boat House</a></p>
-                  <p><a href="bothy.html" class="project-link" data-image="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1723296224/Bothy_Front_v84a6e.webp">Bothy</a></p>
-                 <p><a href="library.html" class="project-link" data-image="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716016029/Close_library_v2j3a1.png">Library</a></p>
-                  <p><a href="lynchgate.html" class="project-link" data-image="images/lynchgate.jpg">Lynchgate</a></p>
-                  <p><a href="modernhouse.html" class="project-link" data-image="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1725024681/026EC540-95A9-4C26-B99C-BF6864E80A98_j1owit.jpg" alt="Image 4" class="gallery-image">Modern House</a></p>
-            </div>
-        </section>
-    </main>
+    <script>
+    const yearCounter = document.getElementById('year-counter');
+    const imageNameHeader = document.getElementById('image-name-header');
+    const imageItems = document.querySelectorAll('.image-item');
+    const scrollContainer = document.getElementById('scroll-container');
 
-<script src="script.js" defer></script>
+    scrollContainer.addEventListener('scroll', () => {
+        let closestItem = null;
+        let closestDistance = Infinity;
+
+        imageItems.forEach((item) => {
+            const rect = item.getBoundingClientRect();
+            const distanceToCenter = Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2);
+
+            // Track the closest image to the center
+            if (distanceToCenter < closestDistance) {
+                closestDistance = distanceToCenter;
+                closestItem = item;
+            }
+
+            // Calculate opacity based on distance from center
+            const maxDistance = window.innerHeight / 2;
+            const opacity = 1 - Math.min(distanceToCenter / maxDistance, 1);
+            item.querySelector('img').style.opacity = opacity;
+        });
+
+        // Update year and header text for the centered image
+        if (closestItem) {
+            yearCounter.textContent = closestItem.getAttribute('data-year');
+            const img = closestItem.querySelector('img');
+            imageNameHeader.textContent = img.alt;
+        }
+    });
+</script>
+    
 </body>
 </html>
+            
+    

@@ -27,7 +27,6 @@
             box-sizing: border-box;
         }
 
-        /* Logo styling */
         .logo {
             font-size: 20px;
             color: black;
@@ -35,7 +34,6 @@
             text-decoration: none;
         }
 
-        /* Navigation Links Styling */
         nav ul {
             display: flex;
             list-style: none;
@@ -60,7 +58,6 @@
             text-shadow: 0 0 4px #fff, 0 0 8px #fff;
         }
 
-        /* Styles for floating images */
         #menu {
             position: absolute;
             top: 0;
@@ -75,13 +72,11 @@
 
         #menu li {
             background-color: white;
-            width: 120px;
-            height: auto;
             box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
             cursor: move;
             opacity: 0;
             position: absolute;
-            transition: transform 0.5s, top 0s, opacity 2s;
+            transition: transform 0.5s, opacity 2s;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -89,14 +84,14 @@
         }
 
         #menu li img {
-            max-width: 210px;
-            height: auto;
+            width: auto;
+            max-height: 220px;
             object-fit: cover;
             border-radius: 0px;
             display: block;
+            
         }
 
-        /* Media query for screens smaller than 400px */
         @media (max-width: 400px) {
             #menu li img {
                 max-width: 150px;
@@ -110,9 +105,9 @@
     <nav>
         <a href="index.html" class="logo">Xavier Vasco</a>
         <ul>
+            <li><a href="about.html">About</a></li>
             <li><a href="work.html">Portfolio</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
@@ -123,55 +118,68 @@
                 draggable="false"></li>
         <li><img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1723296224/Bothy_Front_v84a6e.webp" alt="Image 3"
                 draggable="false"></li>
-    </ul>
+        <li><img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1731318936/gif-2_ikuvxc.gif" alt="Image 3"
+                draggable="false"></li>
+ 
+        
+        </ul>
 
     <script>
-        
-          window.onload = function() {
-        setTimeout(function() {
-            const links = document.querySelectorAll('nav ul li a');
-            links.forEach((link, index) => {
+        window.onload = () => {
+            // Transition navigation links with staggered delay
+            document.querySelectorAll('nav ul li a').forEach((link, index) => {
                 link.style.transitionDelay = `${index * 1}s`;
                 link.style.opacity = 1;
             });
-        }, 1500);
-    };
-        
-        function dropMenu() {
-            const menuItems = document.querySelectorAll('#menu li img'); // Select images directly
-            const screenWidth = 600;
-            const screenHeight = window.innerHeight;
-            const centerX = (window.innerWidth - screenWidth) / 2;
 
-            menuItems.forEach((item, index) => {
-                const itemWidth = item.clientWidth;
-                const itemHeight = item.clientHeight;
+            // Drop menu items in random positions
+            dropMenu();
+        };
 
-                const randomX = Math.random() * (screenWidth - itemWidth) + centerX;
-                const randomY = Math.random() * (screenHeight - itemHeight);
+    function dropMenu() {
+    const menuItems = document.querySelectorAll('#menu li img');
+    const screenWidth = window.innerWidth; // Use full screen width
+    const screenHeight = window.innerHeight; // Use full screen height
 
-                item.parentNode.style.left = `${Math.max(centerX, Math.min(randomX, screenWidth + centerX - itemWidth))}px`;
-                item.parentNode.style.top = `${Math.max(0, Math.min(randomY, screenHeight - itemHeight))}px`;
+    // Loop through all images
+    menuItems.forEach((item, index) => {
+        const itemWidth = item.clientWidth;
+        const itemHeight = item.clientHeight;
 
-                item.parentNode.style.opacity = '1';
+        // Generate random positions across the full screen
+        const randomX = Math.random() * (screenWidth - itemWidth);
+        const randomY = Math.random() * (screenHeight - itemHeight);
 
-                makeDraggable(item);
-            });
+        // Position all items with random placement across the screen
+        requestAnimationFrame(() => {
+            item.parentNode.style.left = `${Math.max(0, randomX)}px`;
+            item.parentNode.style.top = `${Math.max(0, randomY)}px`;
+            item.parentNode.style.opacity = '1';
+        });
+
+        // Set z-index: -1 for the last image's parent to place it behind others
+        if (index === menuItems.length - 1) {
+            item.parentNode.style.zIndex = '-1';
+        } else {
+            item.parentNode.style.zIndex = '1'; // Ensure other images are above
         }
 
+        makeDraggable(item);
+    });
+}
         function makeDraggable(item) {
             let offsetX, offsetY, isDragging = false;
 
             const onDragMove = (e) => {
-                if (isDragging) {
-                    const clientX = e.clientX || e.touches[0].clientX;
-                    const clientY = e.clientY || e.touches[0].clientY;
+                if (!isDragging) return;
 
-                    requestAnimationFrame(() => {
-                        item.parentNode.style.left = `${clientX - offsetX}px`;
-                        item.parentNode.style.top = `${clientY - offsetY}px`;
-                    });
-                }
+                const clientX = e.clientX || e.touches[0].clientX;
+                const clientY = e.clientY || e.touches[0].clientY;
+
+                requestAnimationFrame(() => {
+                    item.parentNode.style.left = `${clientX - offsetX}px`;
+                    item.parentNode.style.top = `${clientY - offsetY}px`;
+                });
             };
 
             const onDragEnd = () => {
@@ -201,8 +209,6 @@
             item.addEventListener('mousedown', onDragStart);
             item.addEventListener('touchstart', onDragStart);
         }
-
-        window.onload = dropMenu;
     </script>
 
 </body>
