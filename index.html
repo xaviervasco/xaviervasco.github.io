@@ -1,58 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xavier Vasco</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Gravity Menu</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            padding: 10px 20px;
+            z-index: 100;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-sizing: border-box;
+        }
+
+        /* Logo styling */
+        .logo {
+            font-size: 20px;
+            color: black;
+            font-family: Helvetica, sans-serif;
+            text-decoration: none;
+        }
+
+        /* Navigation Links Styling */
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 12px;
+            font-family: Helvetica, sans-serif;
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+
+        nav ul li a:hover {
+            text-shadow: 0 0 4px #fff, 0 0 8px #fff;
+        }
+
+        /* Styles for floating images */
+        #menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateX(0%);
+            width: 200px;
+            text-align: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #menu li {
+            background-color: white;
+            width: 120px;
+            height: auto;
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+            cursor: move;
+            opacity: 0;
+            position: absolute;
+            transition: transform 0.5s, top 0s, opacity 2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #menu li img {
+            max-width: 210px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 0px;
+            display: block;
+        }
+
+        /* Media query for screens smaller than 400px */
+        @media (max-width: 400px) {
+            #menu li img {
+                max-width: 150px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <!-- Header with Logo -->
-    <header>
-<picture>
-  <!-- Source for screens less than 1000px wide -->
-  <source media="(max-width: 1000px)" srcset="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1725459447/Website_logo_2_v6pnwo.svg">
 
-  <!-- Default logo for larger screens -->
-  <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1725730240/Untitled_Artwork_2_b41pe8.png" alt="Xavier Vasco" class="logo-image">
-</picture>
-        </div>
-        <div class="burger-menu" id="burger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </header>
+    <nav>
+        <a href="index.html" class="logo">Xavier Vasco</a>
+        <ul>
+            <li><a href="work.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
 
-    <!-- Navigation Menu -->
-    <div id="menu-overlay" class="hidden">
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                   <br>
-                <li><a href="work.html"><em>Work & Projects</em></a></li>
+    <ul id="menu">
+        <li><img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716016029/Close_library_v2j3a1.png" alt="Image 1"
+                draggable="false"></li>
+        <li><img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716015860/Mastershot_aux4j6.png" alt="Image 2"
+                draggable="false"></li>
+        <li><img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1723296224/Bothy_Front_v84a6e.webp" alt="Image 3"
+                draggable="false"></li>
+    </ul>
 
-                <!-- Add more pages as needed -->
-            </ul>
-        </nav>
-    </div>
+    <script>
+        
+          window.onload = function() {
+        setTimeout(function() {
+            const links = document.querySelectorAll('nav ul li a');
+            links.forEach((link, index) => {
+                link.style.transitionDelay = `${index * 1}s`;
+                link.style.opacity = 1;
+            });
+        }, 1500);
+    };
+        
+        function dropMenu() {
+            const menuItems = document.querySelectorAll('#menu li img'); // Select images directly
+            const screenWidth = 600;
+            const screenHeight = window.innerHeight;
+            const centerX = (window.innerWidth - screenWidth) / 2;
 
-    <!-- Main Content -->
-    <main>
-        <section class="gallery">
-            <div class="gallery-frame">
-                <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716015860/Mastershot_aux4j6.png" alt="Image 1" class="gallery-image active">
-                <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716016029/Close_library_v2j3a1.png" alt="Image 2" class="gallery-image">
- <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1723296224/Bothy_Front_v84a6e.webp" alt="Image 3" class="gallery-image">
-<img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1725024681/026EC540-95A9-4C26-B99C-BF6864E80A98_j1owit.jpg" alt="Image 4" class="gallery-image">
+            menuItems.forEach((item, index) => {
+                const itemWidth = item.clientWidth;
+                const itemHeight = item.clientHeight;
 
-                <!-- Add more images as needed -->
-            </div>
-        </section>
-    </main>
+                const randomX = Math.random() * (screenWidth - itemWidth) + centerX;
+                const randomY = Math.random() * (screenHeight - itemHeight);
 
-    <script src="script.js"></script>
+                item.parentNode.style.left = `${Math.max(centerX, Math.min(randomX, screenWidth + centerX - itemWidth))}px`;
+                item.parentNode.style.top = `${Math.max(0, Math.min(randomY, screenHeight - itemHeight))}px`;
+
+                item.parentNode.style.opacity = '1';
+
+                makeDraggable(item);
+            });
+        }
+
+        function makeDraggable(item) {
+            let offsetX, offsetY, isDragging = false;
+
+            const onDragMove = (e) => {
+                if (isDragging) {
+                    const clientX = e.clientX || e.touches[0].clientX;
+                    const clientY = e.clientY || e.touches[0].clientY;
+
+                    requestAnimationFrame(() => {
+                        item.parentNode.style.left = `${clientX - offsetX}px`;
+                        item.parentNode.style.top = `${clientY - offsetY}px`;
+                    });
+                }
+            };
+
+            const onDragEnd = () => {
+                isDragging = false;
+                item.parentNode.style.zIndex = '';
+                document.removeEventListener('mousemove', onDragMove);
+                document.removeEventListener('mouseup', onDragEnd);
+                document.removeEventListener('touchmove', onDragMove);
+                document.removeEventListener('touchend', onDragEnd);
+            };
+
+            const onDragStart = (e) => {
+                const clientX = e.clientX || e.touches[0].clientX;
+                const clientY = e.clientY || e.touches[0].clientY;
+
+                offsetX = clientX - parseInt(item.parentNode.style.left);
+                offsetY = clientY - parseInt(item.parentNode.style.top);
+                isDragging = true;
+                item.parentNode.style.zIndex = 1000;
+
+                document.addEventListener('mousemove', onDragMove);
+                document.addEventListener('mouseup', onDragEnd);
+                document.addEventListener('touchmove', onDragMove);
+                document.addEventListener('touchend', onDragEnd);
+            };
+
+            item.addEventListener('mousedown', onDragStart);
+            item.addEventListener('touchstart', onDragStart);
+        }
+
+        window.onload = dropMenu;
+    </script>
+
 </body>
+
 </html>
