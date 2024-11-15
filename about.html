@@ -63,14 +63,17 @@
         padding-top: 80px; /* Adjust as needed */
     }
        
-       .about-details {
-    column-count: 5;
-    column-gap: min 20px; /* Space between the columns */
-    max-width: 1500px; /* Set a maximum width for the entire section */
+ .about-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive column width */
+    gap: 20px; /* Space between columns */
+    max-width: 1500px;
+    margin: 0 auto;
+    padding-top: 80px; /* Padding at the top */
 }
 
 .column {
-    break-inside: avoid; /* Ensure that elements don't break awkwardly between columns */
+    /* Remove break-inside to avoid column break issues */
 }
 
 .column img {
@@ -87,21 +90,13 @@
 .indented {
     margin-left: 20px; /* Add margin-left for indentation */
 }
-
-/* Justify text in the About section */
-.about-details p {
-    text-align: left;
-}
        
        .column subtitle {
         font-size: 0.8rem; /* Adjust the heading size to fit in the column */
 
 }
 
-/* Adjust for screens larger than 1000px */
-@media (min-width: 600px) {
     .about-details {
-        column-count: 5; /* Five columns on screens larger than 1000px */
         margin-left: 20px;
         margin-right: auto;
     }
@@ -166,64 +161,58 @@
         </ul>
     </nav>
     
-    <main>
+   <main>
         <section class="about-details">
-            <!-- Centered Text Section -->
             <div class="column">
                 <h1>Biography</h1><br>
                 <p>Xavier Vasco is an Australian architecture student based in Melbourne. He is pursuing a Master's in Architecture and a Master's in Cultural and Urban Heritage at the University of Melbourne. He has completed parts of his studies at UC Berkley and TU Delft.</p>
-<p>His architectural work primarily focuses on themed architecture, mainly in New Classical and Gothic styles, exploring the relationship between visual expression and its socio-ecological impacts on our environment. His research interests focus on artificiality and nostalgia, exploring the integration of artificial acoustics and animatronics into everyday environments.</p>
-
+                <p>Focused on themed architecture, his work explores the potential of immersive and narrativised artificial environments. This approach combines playful theatricality with a deep understanding of geometry and traditional construction techniques, resulting in designs that are both highly symbolic and methodologically grounded.</p>
                 <p>Xavier also maintains an art practice, having exhibited in Australia, the United States, and Europe. His works have primarily concerned the production of sculptural objects as artificial facsimiles and theatrical props, utilising technical abilities in carpentry, metalwork, sculpture, computer-aided design, painting, and colouring.</p>
-<br>
-
-
-<img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1731323996/xavier_heulds.png" alt="Image Description">
+<br><img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1731323996/xavier_heulds.png" alt="Image Description">
             </div>
            
+            <div class="column">
+                <h1>Education</h1><br>
+                <h2>(2024 - in progress)</h2>                
+                <h2>Master of Urban and Cultural Heritage</h2>
+                <p>Melbourne School of Design, The University of Melbourne (Australia)<br></p><br>
 
-    <p class="break-to-new-column">
- <p class="new-column-start">
- <div class="column">
-<h1>Education</h1><br>
-<h2>(2024 - in progress)</h2>                
-<h2>Master of Urban and Cultural Heritage</h2>
-<p>Melbourne School of Design, The University of Melbourne (Australia)<br></p><br>
-
-<h2>(2021 - in progress)</h2> 
+                <h2>(2021 - in progress)</h2> 
                 <h2>Master of Architecture</h2>
                  <p>Melbourne School of Design, The University of Melbourne (Australia)</p>
                 <p class="indented"><strong style="font-weight: normal;"><em>studied in part at</em></strong> Delft University of Technology (Netherlands)</p><br>
 
-			<h2>(2017-2020)</h2>
+			     <h2>(2017-2020)</h2>
                 <h2>Bachelor of Fine Art</h2>
                 <p>Victorian College of the Arts, The University of Melbourne (Australia)</p>
-<p class="indented"><strong style="font-weight: normal;"><em>studied in part at</em></strong> Berkeley, University of California (United States of America)</p>            </div>
-<br>
-            <div class="column">
- <p class="new-column-start">
-<h1>Awards and Recognition</h1><br>
+                <p class="indented"><strong style="font-weight: normal;"><em>studied in part at</em></strong> Berkeley, University of California (United States of America)</p>            
+                
+                <br>
+                
+                <h1>Awards and Recognition</h1><br>
                 <p>Global Scholars Award, 2023</p>
                 <p>Global Scholars Award, 2019</p>
                <br>
 
                 <h1>Memberships and Affiliations</h1><br>
-<p>AusHeritage - <em>Member</em></p>
+                <p>AusHeritage - <em>Member</em></p>
                 <p>Congress for the New Urbanism - <em>Member</em></p>
-                <p>National Trust of Australia - <em>Volunteer</em></p>
+                <p>National Trust of Australia - <em>Member</em></p>
             </div>
 
             <div class="column">
- <p class="new-column-start">
-<h1>Employment</h1><br>
+                <h1>Employment</h1><br>
                 <p><strong style="font-weight: normal;">Architectural Intern (Current)</strong><br>
                 RBA Architects + Conservation Consultants.</p>
- <br>
+                <p><strong style="font-weight: normal;">Conservation Volunteer (Current)</strong><br>
+                National Trust of Australia.</p>
+                <br>
             </div>
-                   <div class="column">
-<h1>Experience</h1><br>
-<p>2024. Received letter of commendation from the Dean of Architecture, Building and Planning; Professor Julie Willis.</p>              
-<p>2024. Selected as Melbourne School of Design Peer Mentor.</p> 
+            
+            <div class="column">
+                <h1>Experience</h1><br>
+                <p>2024. Received letter of commendation from the Dean of Architecture, Building and Planning; Professor Julie Willis.</p>              
+                <p>2024. Selected as Melbourne School of Design Peer Mentor.</p> 
                 <p>2024. Took part in the Australia ICOMOS Mentoring Program.</p>            
                 <p>2024. Guest crit at the Melbourne School of Design - <em>Design Studio Delta</em>, 2 May.</p>
                 <p>2021. Worked with the Cummeragunja Indigenous Australian community to design and construct a culture pavilion.</p>
@@ -232,21 +221,19 @@
                 <p>2016. Received mentorship by eminent Australian artist Lewis Fidock.</p>
                 <p>2015. Awarded select entry to attend the Victorian College of the Arts Secondary School.</p>
                 <p>2014. Australian Airforce Cadet, <em>417 Squadron.</em></p>
-               
-                <br>
-
             </div>
+            
             <div class="column">
-<h1>Exhibitions</h1><br>
-  <p>2023. <em>PLEIN</em> at Doelenplein. 18 April. Netherlands.</p>
+                <h1>Exhibitions</h1><br>
+                <p>2023. <em>PLEIN</em> at Doelenplein. 18 April. Netherlands.</p>
                 <p>2022. <em><a href="https://web.archive.org/web/20241111142611/https://asbestos.fail/more-love#expand"><em>More Love</em></a></em> at Asbestos. 4 June - 19 June. Australia. <a href="https://web.archive.org/web/20240729124942/https://www.memoreview.net/reviews/more-love#expand"><em>Review in Memo.</em></a></p>
                 <p>2022. <em>Muscle</em> at Cathedral Cabinet. Gallery text. 24 February - 15 March. Australia.</p>
                 <p>2020. <em>VCA Grad Show</em> at Victorian College of the Arts. Australia.</p>
                 <p>2016. <em>The Unresolved</em> at VCA Student Gallery. Australia.</p>
-                <p>2016. <em>Talk With Simplicity</em> at George Paton Gallery. Australia.</p>
+                <p>2016. <em><a href="https://web.archive.org/web/20230517092058/https://umsu.unimelb.edu.au/pageassets/express-yourself/gallery/archive/8-all-Talk-with-simplicity.pdf#expand"><em>Talk With Simplicity</em></a></em> at George Paton Gallery. Australia.</p>
+
                 <p>2016. <em>Still Resolving</em> at MADA Student Gallery. Australia.</p>
             </div>
-
 
         </section>
     </main>

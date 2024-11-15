@@ -59,7 +59,7 @@
 
         #scroll-container {
             position: fixed;
-            top: 0;
+            top: 0%;
             left: 200px;
             width: 300px;
             height: 100vh;
@@ -116,46 +116,112 @@
         }
 
         header {
-            top: 35%;
-        }
+    position: fixed;
+    left: 800px;
+    color: black;
+    font-size: 2.5em;
+    text-align: right;
+    z-index: 100;
+    font-size: 25px;
+    top: 45%;
+    margin-bottom: 20px; /* Add spacing below the header */
+}
 
-        #year-counter {
-            top: 38%;
-        }
+#year-counter {
+    position: fixed;
+    left: 800px;
+    color: black;
+    font-size: 25px;
+    text-align: right;
+    z-index: 100;
+    top: calc(45% + 40px); /* Place it 40px below the header */
+}
+
        
-        @media (max-width: 400px) {
-
-              #scroll-container {
+       /* Button to trigger the popup */
+        .popup-button {
             position: fixed;
-            top: 0;
-            left: 0px;
-            width: 300px;
-            height: 100vh;
-            overflow-y: scroll;
-            scroll-behavior: smooth;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            scroll-snap-type: y mandatory;
+            left: 800px;
+            color: black;
+            font-size: 01rem;
+            text-align: right;
+            z-index: 100;
+            top: calc(45% + 80px); /* Place it 40px below the header */
+            cursor: pointer;
+            background-color: transparent;
+            color: grey;
+            border: none;
         }
-            
-                 .image-item {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            scroll-snap-align: center;
-            margin-bottom: 20px;
-            position: relative;
-        }
-                    
 
-            
-            
-            }
-        }
+        /* Popup background overlay */
+        /* Popup overlay with flex properties */
+      /* Popup overlay with fade effect */
+/* Popup overlay */
+.popup-overlay {
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Transition effect */
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(236, 236, 236, 0.5); /* Transparent background */
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    z-index: 100;
+}
+
+.popup-overlay.show {
+    display: flex; /* Show when popup opens */
+    opacity: 1; /* Full opacity for visible state */
+}
+
+/* Popup content */
+.popup-content {
+    background: transparent;
+    top: 80px;
+    padding-left: 20px;
+    width: 100%; /* Adjust width as needed */
+    text-align: left;
+    position: relative;
+    z-index: 101;
+    font-size: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(5);
+    gap: 20px; /* Optional spacing between columns */
+}
+
+    .popup-content h2 {
+        grid-column: span 5; /* Make title span all columns */
+        text-align: center;
+        font-size: 0.8rem; /* Adjust title font size */
+    }
+       
+    
+.popup-content a {
+    text-decoration: none; /* Removes the underline */
+    font-size: 0.8rem;
+    color: black;
+    font-weight: 300;
+    
+    
+}
+       
+.popup-content p {
+    text-decoration: none; /* Removes the underline */
+    font-size: 0.8rem;
+    color: black;
+    font-weight: 300;
+    line-height: 1rem;    
+    margin-bottom: -0.8rem; /* Add space after each paragraph */
+    
+}
+       
+      .popup-content h1 {
+        font-size: 0.8rem; /* Adjust the heading size to fit in the column */
+        font-weight: normal;
+    }
+
        
     </style>
 
@@ -192,6 +258,76 @@
     </div>
 
     <div id="year-counter">2020</div>
+    
+       <button class="popup-button" onclick="openPopup()">Index</button>
+
+    <!-- Popup overlay and content -->
+   <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-content">
+        <h1>Architecture</h1>
+        <p>2024. <em><a href="https://www.google.com">Bothy</a></em></p>
+        <p>2024. <em><a href="https://www.google.com">Beach House</a></em></p>
+        <p>2023. <em><a href="https://www.google.com">Old Treasury Buidling</a></em></p>
+        <p>2021. <em><a href="https://www.google.com">State Library Victoria</a></em></p>
+    </div>
+       
+       <div class="popup-content">
+    <h1>Digital Development</h1>
+    <p>2024. <em><a href="https://www.google.com">Archiology.com.au</a></em>, web</p>
+    <p>2024. <em><a href="https://www.google.com">Building Damage Diagnosis</a></em>, iOS</p>
+
+</div>
+       
+         <div class="popup-content">
+    <h1>Industrial Design</h1>
+    <p>2024. <em><a href="https://www.google.com">Backpack</a></em></p>
+
+
+</div>
+
+       <div class="popup-content">
+    <h1>Artwork</h1>
+    <p>2024. <em><a href="https://www.google.com">Egyptology</a></em></p>
+    <p>2024. <em><a href="https://www.google.com">OceanGate</a></em></p>
+    <p>2023. <em><a href="https://www.google.com">Palimpsest</a></em></p>
+    <p>2022. <em><a href="https://www.google.com">Speakeasy</a></em></p>
+    <p>2020. <em><a href="https://www.google.com">Chair</a></em></p>
+    <p>2019. <em><a href="https://www.google.com">Bathtub</a></em></p>
+
+</div>
+
+       <div class="popup-content">
+    <h1>Writing</h1>
+    <p>2020. <em><a href="https://xaviervasco.medium.com/melbournes-kiosks-are-numbered-but-they-still-matter-87b1213b32f0">Melbourne’s Kiosks Are Numbered, But They Still Matter.</a></em></p>
+    <p>2018. <em><a href="https://xaviervasco.medium.com/language-in-architecture-where-the-contemporary-misses-the-point-7750ff6c68f6">Architecture's Dying Words</a></em>. First published in Verve Zine.</p>
+
+</div>
+       
+</div>
+    
+    <script>
+   function openPopup() {
+    const popupOverlay = document.getElementById('popupOverlay');
+    popupOverlay.style.display = 'flex';  // Make it visible
+    setTimeout(() => {
+        popupOverlay.classList.add('show');  // Trigger fade-in
+    }, 10);  // Small delay to ensure the transition starts after display change
+}
+
+function closePopup(event) {
+    const popupOverlay = document.getElementById('popupOverlay');
+    if (event.target.id === 'popupOverlay') {
+        popupOverlay.classList.remove('show');  // Trigger fade-out
+        setTimeout(() => {
+            popupOverlay.style.display = 'none';  // Hide after transition ends
+        }, 500);  // Match the CSS transition duration
+    }
+}
+
+document.getElementById('popupOverlay').addEventListener('click', closePopup);
+</script>
+
+    
 
     <script>
     const yearCounter = document.getElementById('year-counter');
