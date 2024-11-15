@@ -151,26 +151,44 @@
             background-color: transparent;
             color: grey;
             border: none;
+            transition: color 0.3s ease; /* Smooth transition for color over 0.3 seconds */
+       
+    }
+
+    /* Change link color to black on hover */
+    .popup-button:hover {
+        color: black;
+       
         }
 
         /* Popup background overlay */
         /* Popup overlay with flex properties */
       /* Popup overlay with fade effect */
 /* Popup overlay */
+       
+     .popup-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(236, 236, 236, 0.5); /* Transparent background */
+    z-index: 99;
+}
+
+/* Popup content with max-width */
 .popup-overlay {
     display: none; /* Hidden by default */
     opacity: 0;
     transition: opacity 0.5s ease; /* Transition effect */
     position: fixed;
-    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(236, 236, 236, 0.5); /* Transparent background */
     justify-content: center;
-    align-items: flex-start; /* Align content to the top */
+    align-items: flex-start;
+    max-width: 1500px; /* Set max width for the content */
     z-index: 100;
 }
-
 .popup-overlay.show {
     display: flex; /* Show when popup opens */
     opacity: 1; /* Full opacity for visible state */

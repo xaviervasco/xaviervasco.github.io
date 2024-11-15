@@ -61,12 +61,14 @@
     /* Add padding above the grid */
     .about-details {
         padding-top: 80px; /* Adjust as needed */
+        
     }
        
        .about-details {
     column-count: 2;
     column-gap: min 20px; /* Space between the columns */
     max-width: 1500px; /* Set a maximum width for the entire section */
+           
 }
 
 .column {
@@ -91,8 +93,31 @@
 /* Justify text in the About section */
 .about-details p {
     text-align: left;
+    
 }
+       
+   .about-details a {
+        color: grey;
+        text-decoration: none;
+        transition: color 0.3s ease; /* Smooth transition for color over 0.3 seconds */
+       
+    }
 
+    /* Change link color to black on hover */
+    .about-details a:hover {
+        color: black;
+    }
+       
+       .about-details h1 {
+    text-decoration: none; /* Removes the underline */
+    font-size: 0.8rem;
+    color: black;
+    font-weight: 300;
+    line-height: 1rem;    
+    margin-bottom: -0.8rem; /* Add space after each paragraph */
+           
+           
+       }
 /* Adjust for screens larger than 1000px */
 @media (min-width: 600px) {
     .about-details {
@@ -115,6 +140,7 @@
         line-height: 1.2; /* Adjust the line-height for paragraphs */
         margin-bottom: 12px; /* Add space after each paragraph */
         font-weight: 300;
+        
     }
 }
 
@@ -143,6 +169,7 @@
         line-height: 1.2; /* Adjust the line-height for paragraphs */
         margin-bottom: 12px; /* Add space after each paragraph */
         font-weight: 300;
+        
     }
 }
 
@@ -167,6 +194,10 @@
             <div class="column">
                 <h1>Contact</h1><br>
 <p><em>For all matters, you can address me</em> <a href="mailto:screens_canter0u@icloud.com">here.</a></p><br>
+                
+                <h1><a href="mailto:screens_canter0u@icloud.com">Instagram</a></h1><br>
+                <h1><a href="mailto:screens_canter0u@icloud.com">Threads</a></h1><br>
+                <h1><a href="mailto:screens_canter0u@icloud.com">Substack</a></h1><br>
 
 <br>
             </div>
