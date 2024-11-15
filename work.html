@@ -181,6 +181,7 @@
     background: transparent;
     top: 80px;
     padding-left: 20px;
+    padding-right: 20px;
     width: 100%; /* Adjust width as needed */
     text-align: left;
     position: relative;
@@ -188,8 +189,11 @@
     font-size: 0.8rem;
     display: grid;
     grid-template-columns: repeat(5);
-    gap: 20px; /* Optional spacing between columns */
-}
+    gap: max(20px, 5%); /* Minimum gap of 20px and maximum gap as 5% of the available space */
+    
+    
+
+       }
 
     .popup-content h2 {
         grid-column: span 5; /* Make title span all columns */
