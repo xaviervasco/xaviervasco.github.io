@@ -67,7 +67,7 @@
 .about-details {
     padding-top: 80px;
     column-count: 1;
-    max-width: 500px;
+    max-width: 475px;
     margin: 0 auto;
     overflow: visible; /* Allow content to overflow horizontally */
     position: relative;
@@ -112,25 +112,16 @@
               margin-right: auto;
               width: 85%;
             }
+            
+            .wide-image {
+    width: 520px; /* Makes the image span the full viewport width */
+    max-width: none; /* Removes any default max-width constraints */
+    position: relative;
+    left: 50%; /* Moves the image center relative to its container */
+    transform: translateX(-50%); /* Centers the image horizontally */
+    margin-top: 20px; /* Optional: adds some space above the image */
+}
 
-                   /* Three image containers (use 25% for four, and 50% for two, etc) */
- .row {
-    display: flex;
-    margin: 0 -40px; /* Adjusts the row margins to let images overflow the container */
-    justify-content: space-evenly; /* Distributes images with equal space around them */
-    align-items: center; /* Aligns all images vertically in the center */
-     gap: 10px;
-
-     
-     }
-     .column {
-    width: 45%; /* Sets each column to occupy about half of the row’s width */
-}
-}
-.column img {
-    width: auto; /* Maintains aspect ratio */
-    object-fit: contain; /* Ensures no cropping */
-}
         </style>
     </head>
     <body>
@@ -160,14 +151,14 @@
                 </p>
 
             
-                
-                <img
-                    src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1731678819/Screenshot_2024-11-15_at_11.39.03_pm_ndakep.png"
-                    alt="Image 3"
-                    draggable="false" /><b></b>
-           
                
-                <p>Part of the development included touch controls, allowing the site to be fully featured on mobile.</p>
+           <img
+    src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1731734348/screenshoit_ehb5wv.png"
+    alt="Image 3"
+    class="wide-image"
+    draggable="false" />
+               
+                <br><p>Part of the development included touch controls, allowing the site to be mobile friendly.</p>
 
                 <br><img
                     src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1731674698/Screenshot_2024-11-15_at_11.39.03_pm_eqgkrp.png"
