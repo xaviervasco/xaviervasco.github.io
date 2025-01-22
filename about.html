@@ -116,7 +116,30 @@
         margin-bottom: 12px; /* Add space after each paragraph */
         font-weight: 300;
     }
+       
+    .spinning-logo-container {
+    display: inline-block;
+    margin-right: 15px;
+    position: relative; /* Enable relative positioning */
+    top: 2px; /* Push the spinning logo down by 2px */
 }
+
+.spinning-logo {
+    width: 24px; /* Adjust size to fit the nav bar */
+    height: 24px;
+    animation: spin 3s linear infinite;
+    object-fit: contain;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 /* Adjust for screens smaller than 1000px */
 @media (max-width: 600px) {
@@ -153,13 +176,18 @@
 <body>
     
        <nav>
+    <div style="display: flex; align-items: center;">
+        <div class="spinning-logo-container">
+            <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1737554039/logo_mdcd7g.svg" alt="Spinning Logo" class="spinning-logo">
+        </div>
         <a href="index.html" class="logo">Xavier Vasco</a>
-        <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="work.html">Portfolio</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    </div>
+    <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
     
    <main>
         <section class="about-details">
