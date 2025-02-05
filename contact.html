@@ -64,12 +64,11 @@
         
     }
        
-       .about-details {
-    column-count: 2;
-    column-gap: min 20px; /* Space between the columns */
-    max-width: 1500px; /* Set a maximum width for the entire section */
-           
-}
+    .about-details {
+        column-count: 5; /* Five columns on screens larger than 1000px */
+        margin-left: 20px;
+        margin-right: auto;
+    }
 
 .column {
     break-inside: avoid; /* Ensure that elements don't break awkwardly between columns */
@@ -81,10 +80,9 @@
 }
 
 /* Centered Text Section */
-.about-intro {
-    text-align: left;
-    margin-bottom: 40px;
-}
+  .about-intro {
+        margin-bottom: 0; /* Remove bottom margin when part of the columns */
+    }
 
 .indented {
     margin-left: 20px; /* Add margin-left for indentation */
@@ -118,17 +116,6 @@
            
            
        }
-/* Adjust for screens larger than 1000px */
-@media (min-width: 600px) {
-    .about-details {
-        column-count: 5; /* Five columns on screens larger than 1000px */
-        margin-left: 20px;
-        margin-right: auto;
-    }
-
-    .about-intro {
-        margin-bottom: 0; /* Remove bottom margin when part of the columns */
-    }
 
     .column h1, .column h2 {
         font-size: 0.8rem; /* Adjust the heading size to fit in the column */
@@ -165,10 +152,8 @@
         transform: rotate(360deg);
     }
 }
-
-
-/* Adjust for screens smaller than 1000px */
-@media (max-width: 600px) {
+       
+       @media (max-width: 600px) {
     .about-intro {
         width: 100%; /* Ensure it takes up full width */
         margin: 0 auto 40px; /* Center it with auto margins and keep bottom margin */
@@ -182,19 +167,11 @@
         width: 100%; /* Make each column full width */
     }
 
-    .column h1, .column h2 {
-        font-size: 0.9rem; /* Adjust the heading size to fit in the column */
-        font-weight: normal;
+  .about-details {
+        column-count: 1; /* Five columns on screens larger than 1000px */
+        margin-left: 20px;
+        margin-right: auto;
     }
-
-    .column p {
-        font-size: 0.9rem; /* Adjust the paragraph font size */
-        line-height: 1.2; /* Adjust the line-height for paragraphs */
-        margin-bottom: 12px; /* Add space after each paragraph */
-        font-weight: 300;
-        
-    }
-}
 
     
     </style>
