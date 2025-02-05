@@ -265,9 +265,25 @@
     to {
         transform: rotate(360deg);
     }
+    
+    }
+    
+@media (max-width: 600px) {
+    /* Change scroll direction to horizontal */
+  #scroll-container {
+            position: fixed;
+            top: 0%;
+            left: 20px;
+            width: 300px;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            scroll-snap-type: y mandatory;
+        }
 }
-
-
        
     </style>
 
@@ -291,9 +307,11 @@
    <header id="image-name-header">Xavier Vasco</header>
 
     <div id="scroll-container">
-         <div class="image-item" data-year="2024">
+             <div class="image-item" data-year="2024">
+        <a href="project1.html" target="_blank">
             <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1731318936/gif-2_ikuvxc.gif" alt="Archiology.com.au">
-        </div>
+        </a>
+    </div>
         <div class="image-item" data-year="2024">
             <img src="https://res.cloudinary.com/dwhkm1mmn/image/upload/v1716015860/Mastershot_aux4j6.png" alt="Beach House">
         </div>

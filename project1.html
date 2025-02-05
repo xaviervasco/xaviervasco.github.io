@@ -143,6 +143,27 @@
     to {
         transform: rotate(360deg);
     }
+        }
+    
+@media (max-width: 600px) {
+    img {
+        width: 100%; /* Ensure images fit small screens */
+        max-width: 100%;
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .wide-image {
+        width: 100%; /* Ensure wide images also fit */
+        margin: 10px auto; /* Add spacing */
+    }
+
+    .about-details h1 {
+        font-size: 1.2rem; /* Adjust the font size for smaller screens */
+    }
+
+    .about-details p {
+        font-size: 0.9rem; /* Adjust paragraph font size for readability */
+    }
 }
 
 
